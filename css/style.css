@@ -1,0 +1,15 @@
+    .oculto {
+        display: none;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .m-10 {
+        margin: 4.5rem !important;
+      }
+
+      body {
+        /*min-height: 75rem;*/
+        padding-top: 4.5rem;
+      }
+      

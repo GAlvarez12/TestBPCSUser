@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Control usuarios BPCS</title>
+</head>
+
+<body>
+    <div >
+        <div>
+            <form action="" method="post">
+                <select id="select1" name="select1">
+                    <option value="0">Selecciona un usuario</option>
+                    <option>Usuario 1 </option>
+                    <option>Usuario 2</option>
+                    <option>Usuario 3</option>
+                </select>
+                <br>
+                <br>
+                <select id="select2" name="select2" hidden>
+                    <option value="0">Selecciona un Menu</option>
+                    <option value="1">Procesamiento de cuentas a pagar </option>
+                    <option value="2">Procesos adicionales de cuentas por pagar</option>
+                    <option value="3">Cuentas a pagar - Pagos</option>
+                </select>
+                <div id="menu1" class="oculto" name="menu1">
+                    <fieldset>
+                        <legend>Procesamiento de cuentas a pagar </legend>
+                        <input type="checkbox" name="prCuentasPagar" value="2">Entrada de facturas<br>
+                        <input type="checkbox" name="prCuentasPagar" value="4">Mantenimiento efectos a pagar periodicos<br>
+                        <input type="checkbox" name="prCuentasPagar" value="5">Seleccion de efectos a pagar periodicos<br>
+                        <br>
+                        <button type="submit" value="Guardar"> Guardar </button>
+                        <button type="submit" value="Agregar"> Agregar </button>
+                        <button type="submit" value="Eliminar"> Eliminar </button>
+                        <button type="submit" value="Cancelar"> Cancelar </button>
+                    </fieldset>
+                </div>
+                <div id="menu2" class="oculto" name="menu2">
+                    Haz selecionado el menu <strong>"2"</strong>.
+                </div>
+                <div id="menu3" class="oculto" name="menu3">
+                    Haz seleccionado el menu <strong>"3"</strong>.
+                </div>
+            </form>
+        </div>
+</div>
+
+</body>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#select1').val("0");
+        $('#select2').val("0");
+
+
+        $('#select2').on('change', function () {
+            var demovalue = $(this).val();
+            $("div.oculto").hide();
+            $("#menu" + demovalue).show();
+        });
+
+        $("#select1").on('change', function () {
+            var usuarioval = $(this).val();
+            if (usuarioval != "0") {
+                $('#select2').removeAttr('hidden');
+            } else {
+                $('#select2').hide();
+            }
+
+        })
+    });
+</script>
+
+</html>
